@@ -1,6 +1,6 @@
 # 22.11.2022 SQL ÖDEV
 
-## * Ürün sayısına göre kategori sıralaması (GROUP BY)
+## * Hangi Kategoride kaç ürün vardır(Inner Join)
 `select ca.name, count(pr.id) as adet from products pr
 inner join product_categories pc
 on pr.id = pc.product_id
@@ -10,43 +10,28 @@ group by ca.name
 order by adet desc`
 
 <p  align="center">
-<img src="Having.png" width=40% height=40%>
+<img src="kategori.png" width=40% height=40%>
   </p>
 
-## * A ve H arasındaki şehir isimleri (ORDER BY)
-`select * from city where city_name between 'A' and 'H' order by city_name`
+## * --product tablosuna ürün eklemek
+`INSERT INTO products(name,stock,unit_price)
+VALUES('masa',5,200)`
 
-<p  align="center">
-<img src="28.11.22_SQL_Ödev/r2.png" width=40% height=40%>
-  </p>
+## * --isme göre masa isimli ürün stok durumunu update edildi
+
+`UPDATE products
+SET stock=30
+WHERE products."name"='masa'`
+
   
-## * Ürün ismine göre ürün fiyatı değiştirme (UPDATE)
-`Update product set unit_price = '1999.00' where name = 'Kolye'`
+## * --outer join
+
+`SELECT * from product_categories pc
+full outer join products p 
+on pc.product_id= p.id`
 
 <p  align="center">
-<img src="28.11.22_SQL_Ödev/r3p1.png" width=60% height=60%>
-<img src="28.11.22_SQL_Ödev/r3p2.png" width=60% height=60%>
-  </p>
-  
-## * ---Hangi kategoride kaç ürün vardır? (INNER JOIN)
-select ca.name, count(pr.id) as adet from products pr
-inner join product_categories pc
-on pr.id = pc.product_id
-inner join categories ca
-on ca.id=pc.category_id
-group by ca.name
-order by adet desc
-
-<p  align="center">
-<img src="Screenshot 2022-11-28 145503.png" width=40% height=40%>
-  </p>
-  
-## * Bütün bölgeler ve şehirler (LEFT JOIN)
-`Select * from district
-left join city on district.id = city.district_id`
-
-<p  align="center">
-<img src="28.11.22_SQL_Ödev/r5.png" width=40% height=40%>
+<img src="Full outer.png" width=40% height=40%>
   </p>
   
 ## * Bütün kullanıcılar ve siparişler (RIGHT JOIN)
