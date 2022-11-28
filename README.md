@@ -16,12 +16,18 @@ order by adet desc`
 ## * --product tablosuna ürün eklemek
 `INSERT INTO products(name,stock,unit_price)
 VALUES('masa',5,200)`
+<p  align="center">
+<img src="insert.png" width=40% height=40%>
+  </p>
 
 ## * --isme göre masa isimli ürün stok durumunu update edildi
 
 `UPDATE products
 SET stock=30
 WHERE products."name"='masa'`
+<p  align="center">
+<img src="update.png" width=40% height=40%>
+  </p>
 
   
 ## * --outer join
