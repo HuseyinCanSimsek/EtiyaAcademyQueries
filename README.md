@@ -1,12 +1,16 @@
 # 22.11.2022 SQL ÖDEV
 
 ## * Ürün sayısına göre kategori sıralaması (GROUP BY)
-`select Sum(stock), categories.name from categories
-inner join product on categories.id = product.category_id
-group by categories.name;`
+`select ca.name, count(pr.id) as adet from products pr
+inner join product_categories pc
+on pr.id = pc.product_id
+inner join categories ca
+on ca.id=pc.category_id
+group by ca.name
+order by adet desc`
 
 <p  align="center">
-<img src="28.11.22_SQL_Ödev/r1.png" width=40% height=40%>
+<img src="Having.png" width=40% height=40%>
   </p>
 
 ## * A ve H arasındaki şehir isimleri (ORDER BY)
