@@ -34,19 +34,25 @@ on pc.product_id= p.id`
 <img src="Full outer.png" width=40% height=40%>
   </p>
   
-## * Bütün kullanıcılar ve siparişler (RIGHT JOIN)
-`Select * from orders
-right join customer on orders.customer_id = customer.id`
+## * B-- Ankara'dan sipariş veren müşterilerin müşteri numarası?
+
+`select ci.name, cu.customer_no from cities ci
+inner join addresses addr on ci.id = addr.id
+inner join customers cu on addr.id = cu.id
+inner join orders o on cu.id = o.id
+where ci.name = 'Ankara' 
+order by cu.customer_no`
 
 <p  align="center">
-<img src="28.11.22_SQL_Ödev/r6.png" width=60% height=60%>
+<img src="innerjoin ankara.png" width=60% height=60%>
   </p>
   
-## * Renklerin ve ürünlerin hepsini (FULL OUTER JOIN)
-`Select color.name as "Renk", product.name "Ürün" from product
-full outer join color on product.color_id = color.id
-order by product.name`
+## *--Between
+
+`SELECT *
+FROM products
+ Where stock Between 0 and 150`
 
 <p  align="center">
-<img src="28.11.22_SQL_Ödev/r7.png" width=40% height=40%>
+<img src="between.png" width=40% height=40%>
   </p>
