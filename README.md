@@ -44,7 +44,7 @@ where ci.name = 'Ankara'
 order by cu.customer_no`
 
 <p  align="center">
-<img src="innerjoin ankara.png" width=60% height=60%>
+<img src="innerjoin ankara cuno.png" width=60% height=60%>
   </p>
   
 ## *--Between
